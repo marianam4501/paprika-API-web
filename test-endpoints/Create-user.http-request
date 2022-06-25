@@ -1,0 +1,13 @@
+{
+  "body": {
+    "content": "ewogICAgICAgICAgICAibmFtZSI6ICJNYXJpYW5hIiwKICAgICAgICAgICAgImxhc3RuYW1lIjogIk11cmlsbG8iLAogICAgICAgICAgICAiZW1haWwiOiAibWFyaWFuYS5tdXJpbGxvcXVpbnRhbmFAdWNyLmFjLmNyIiwKICAgICAgICAgICAgInBhc3N3b3JkIjogICJDMDBrMTMqIgp9",
+    "file": false,
+    "fileSize": false
+  },
+  "headers": {
+    "content-type": "application/json"
+  },
+  "method": "POST",
+  "title": "Create user",
+  "url": "http://localhost:5454/users"
+}

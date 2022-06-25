@@ -21,7 +21,11 @@
   },
   "homepage": "https://github.com/marianam4501/paprika-API-web#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "dotenv": "^16.0.1",
     "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.18"
   }
 }
