@@ -1,0 +1,13 @@
+{
+  "body": {
+    "content": "ewogICAgICAgICAgICAiZW1haWwiOiAibWFyaWFuYS5tdXJpbGxvcXVpbnRhbmFAdWNyLmFjLmNyIiwKICAgICAgICAgICAgInBhc3N3b3JkIjogICJ0M3N0cDRzc3cwcmQiCn0=",
+    "file": false,
+    "fileSize": false
+  },
+  "headers": {
+    "content-type": "application/json"
+  },
+  "method": "POST",
+  "title": "Login",
+  "url": "http://localhost:5454/users/login"
+}
