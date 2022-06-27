@@ -1,0 +1,13 @@
+{
+  "body": {
+    "content": "ewp9",
+    "file": false,
+    "fileSize": false
+  },
+  "headers": {
+    "content-type": "application/json"
+  },
+  "method": "GET",
+  "title": "Feed",
+  "url": "http://localhost:5454/recipes"
+}
