@@ -178,3 +178,20 @@ server.get('/recipes', async (req, res) => {
     }
 });
 
+server.get('/recipes/:id', async (req, res) => {
+    try {
+        const recipe = testRecipes.find(r => r.id == req.params.id);
+        if(!recipe){
+            res.status(400).send("La receta no existe.");
+            return;
+        }
+        res.status(200);
+        res.json(recipe);
+    } catch (error) {
+        res.status(500).json({
+            message:
+              "Ocurrió un error al buscar una receta. Intente nuevamente. Si el error persiste, contacte al administrador del sistema.",
+            error,
+        });
+    }
+});
