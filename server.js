@@ -27,6 +27,7 @@ server.post('/users', async (req, res) => {
     try {
         const existingUser = testUsers.find(u => u.email === user.email);
         if(!existingUser){
+            testUsers.push(user);
             res.status(200);
             res.json(user);
         } else {
@@ -70,7 +71,7 @@ server.post('/users/login', async (req, res) => {
     try {
         const user = testUsers.find(u => u.email === userPayload.email);
         if (!user || !(await bcrypt.compare(userPayload.password, user.password))) {
-            res.status(401).send("Invalid credentials");
+            res.status(401).send("Credenciales inválidas.");
             return;
         } else {
             delete user.password;
@@ -86,6 +87,19 @@ server.post('/users/login', async (req, res) => {
     }
 });
 
+server.get('/users/list', async( req, res) => {
+    try {
+        res.status(200);
+        res.json(testUsers);
+    } catch (error) {
+        res.status(500).json({
+            message:
+              "Ocurrió un error al cargar la lista de usuarios. Intente nuevamente. Si el error persiste, contacte al administrador del sistema.",
+            error,
+        });
+    }
+});
+
 const testRecipes = [
     {
         "id":1,
@@ -95,22 +109,26 @@ const testRecipes = [
             {
                 "id": 1,
                 "name": "Galleta María",
+                "measurement": "unidad(es)",
                 "quantity": 3
             },
             {
                 "id": 2,
                 "name": "Mantequilla",
+                "measurement": "unidad(es)",
                 "quantity": 2
             },
             {
                 "id": 3,
                 "name": "Leche condensada",
+                "measurement": "taza(s)",
                 "quantity": 1
             },
             {
                 "id": 4,
                 "name": "Limón",
-                "quantity": 3
+                "measurement": "mililitro(s)",
+                "quantity": 250
             }
         ],
         "steps": "Duración: 1 hora. Dificultad: Intermedia.",
@@ -124,16 +142,19 @@ const testRecipes = [
             {
                 "id": 1,
                 "name": "Banano",
+                "measurement": "unidad(es)",
                 "quantity": 4
             },
             {
                 "id": 2,
                 "name": "Harina",
+                "measurement": "taza(s)",
                 "quantity": 3
             },
             {
                 "id": 3,
                 "name": "Leche",
+                "measurement": "taza(s)",
                 "quantity": 2
             }
         ],
@@ -148,16 +169,19 @@ const testRecipes = [
             {
                 "id": 1,
                 "name": "Spaghetti",
+                "measurement": "unidad(es)",
                 "quantity": 1
             },
             {
                 "id": 2,
                 "name": "Tomates",
+                "measurement": "unidad(es)",
                 "quantity": 3
             },
             {
                 "id": 3,
                 "name": "Carne molida",
+                "measurement": "kilogramo(s)",
                 "quantity": 1
             }
         ],
@@ -165,7 +189,7 @@ const testRecipes = [
         "image": "https://ibb.co/51zJBVg"
     },
 ];
-server.get('/recipes', async (req, res) => {
+server.get('/recipes/feed', async (req, res) => {
     try {
         res.status(200);
         res.json(testRecipes);
@@ -182,7 +206,7 @@ server.get('/recipes/:id', async (req, res) => {
     try {
         const recipe = testRecipes.find(r => r.id == req.params.id);
         if(!recipe){
-            res.status(400).send("La receta no existe.");
+            res.status(404).send("La receta no existe.");
             return;
         }
         res.status(200);
@@ -202,11 +226,13 @@ server.get('/users/:id', async(req, res) => {
         var user = testUsers.find(u => u.id == user_id);
         delete user.password;
         if(!user){
-            res.status(400).send("No existe un usuario con ese identificador.");
+            res.status(404).send("No existe un usuario con ese identificador.");
             return;
         }
-        var recipes = testRecipes.find(r => r.userId == user_id);
+        var recipes = testRecipes.filter(r => r.userId == user_id);
         delete recipes.userId;
+        delete recipes.ingredients;
+        delete recipes.steps;
         if(!recipes){
             res.status(200);
             res.json(user);
@@ -218,6 +244,31 @@ server.get('/users/:id', async(req, res) => {
         }
         res.status(200);
         res.json(profile);
+    } catch (error) {
+        res.status(500).json({
+            message:
+              "Ocurrió un error al buscar una receta. Intente nuevamente. Si el error persiste, contacte al administrador del sistema.",
+            error,
+        });
+    }
+});
+
+server.post('/recipes', async (req, res) => {
+    recipePayload = req.body;
+    try {
+        const last_id = testRecipes.at(testRecipes.length - 1).id;
+        const recipe = {
+            "id":last_id+1,
+            "userId": recipePayload.userId,
+            "name": recipePayload.name,
+            "ingredients": recipePayload.ingredients,
+            "steps": recipePayload.steps,
+            "image": recipePayload.image
+        }
+        testRecipes.push(recipe);
+        res.status(200);
+        res.json(recipe);
+        return;
     } catch (error) {
         res.status(500).json({
             message:
