@@ -13,12 +13,14 @@ server.get('/', (req, res) => {
 });
 
 const bcrypt = require("bcrypt");
+const { sendRecoveryCodeEmail } = require('./services/mailService');
 const saltRounds = 10;
 
 server.post('/users', async (req, res) => {
     const userPayload = req.body;
+    const last_id = testUsers.at(testUsers.length - 1).id;
     const user = {
-        "id":1,
+        "id":last_id+1,
         "name": userPayload.name,
         "lastname": userPayload.lastname,
         "email": userPayload.email,
@@ -66,6 +68,12 @@ const testUsers = [
         "password": "$2b$10$bu8RfIcSCUYBcjDuyNePYevVcvpHTIK8tlyogugjWGU/tC8VLNtWe" //t3stp4ssw0rd
     },
 ];
+const testCodes = [
+    {
+        "userId":3,
+        "code": 364470
+    },
+]
 server.post('/users/login', async (req, res) => {
     const userPayload = req.body;
     try {
@@ -85,6 +93,61 @@ server.post('/users/login', async (req, res) => {
             error,
         });
     }
+});
+
+server.post('/users/recover-password', async (req, res) => {
+    try {
+        const userPayload = req.body;
+        const user = testUsers.find(u => u.email == userPayload.email);
+        if (!user) {
+            res.status(401).send("Datos no válidos");
+            return;
+        }
+        const randomToken = Math.floor(
+          Math.random() * (999999 - 100000 + 1) + 100000
+        );
+        var existing_code = testCodes.findIndex(u => u.userId == user.id);
+        if(existing_code !== -1){
+            console.log('Borrando codigos existentes...');
+            const deleted = testCodes.splice(existing_code,1);
+            console.log(deleted.at(0).code + ', ' + deleted.at(0).userId);
+        }
+        const code = {
+            "userId": user.id,
+            "code": randomToken
+        }
+        testCodes.push(code);
+        console.log('Enviando correo... codigo: '+code.code);
+        await sendRecoveryCodeEmail(user.email, randomToken); // no sirve
+        console.log('Correo enviado.');
+        res.status(204).send();
+    } catch (error) {
+        res.status(500).send("Error del servidor: " + error);
+    }
+});
+
+server.patch('/users/reset-password', async (req, res) => {
+    try {
+        const userPayload = req.body;
+        const user = testUsers.find(u => u.email === userPayload.email);
+        const user_index = testUsers.findIndex(u => u.email === userPayload.email);
+        const code = testCodes.find(c => c.userId === user.id);
+        const code_index = testCodes.findIndex(u => u.userId == user.id);
+        if (!user || !code || code.code !== userPayload.code) {
+          res.status(401).send("Datos no válidos");
+          return;
+        }
+    
+        user.password = await bcrypt.hash(userPayload.password, saltRounds);
+        testUsers.fill(user, user_index, user_index+1);
+    
+        if(code_index !== -1){
+            testCodes.splice(code_index,1);
+        }
+        res.status(204).send();
+      } catch (error) {
+        res.status(500).send("Error del servidor: " + error);
+      }
 });
 
 server.get('/users/list', async( req, res) => {
