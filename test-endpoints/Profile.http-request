@@ -1,0 +1,13 @@
+{
+  "body": {
+    "content": "",
+    "file": false,
+    "fileSize": false
+  },
+  "headers": {
+    "content-type": "application/json"
+  },
+  "method": "GET",
+  "title": "Profile",
+  "url": "http://localhost:5454/users/2"
+}

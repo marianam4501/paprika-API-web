@@ -195,3 +195,34 @@ server.get('/recipes/:id', async (req, res) => {
         });
     }
 });
+
+server.get('/users/:id', async(req, res) => {
+    const user_id = req.params.id;
+    try {
+        var user = testUsers.find(u => u.id == user_id);
+        delete user.password;
+        if(!user){
+            res.status(400).send("No existe un usuario con ese identificador.");
+            return;
+        }
+        var recipes = testRecipes.find(r => r.userId == user_id);
+        delete recipes.userId;
+        if(!recipes){
+            res.status(200);
+            res.json(user);
+            return;
+        }
+        var profile = {
+            user,
+            recipes
+        }
+        res.status(200);
+        res.json(profile);
+    } catch (error) {
+        res.status(500).json({
+            message:
+              "Ocurrió un error al buscar una receta. Intente nuevamente. Si el error persiste, contacte al administrador del sistema.",
+            error,
+        });
+    }
+});
