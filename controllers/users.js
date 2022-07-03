@@ -7,15 +7,15 @@ const {testRecipes} = require("../data/recipes");
 
 exports.createUser = async (req, res) => {
     const userPayload = req.body;
-    const last_id = testUsers.at(testUsers.length - 1).id;
-    const user = {
-        "id":last_id+1,
-        "name": userPayload.name,
-        "lastname": userPayload.lastname,
-        "email": userPayload.email,
-        "password": await bcrypt.hash(userPayload.password, saltRounds)
-    };
     try {
+        const last_id = testUsers.at(testUsers.length - 1).id;
+        const user = {
+            "id":last_id+1,
+            "name": userPayload.name,
+            "lastname": userPayload.lastname,
+            "email": userPayload.email,
+            "password": await bcrypt.hash(userPayload.password, saltRounds)
+        };
         const existingUser = testUsers.find(u => u.email === user.email);
         if(!existingUser){
             testUsers.push(user);
