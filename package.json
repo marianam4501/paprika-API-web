@@ -22,9 +22,13 @@
   "homepage": "https://github.com/marianam4501/paprika-API-web#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.5-lts.1",
+    "multer-s3": "^3.0.1",
     "nodemailer": "^6.7.5",
     "swagger-jsdoc": "^6.2.1",
     "swagger-ui-express": "^4.4.0"
