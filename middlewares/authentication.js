@@ -1,4 +1,5 @@
 const { jwt } = require("jsonwebtoken");
+const { testUsers } = require("../data/users");
 
 exports.checkUserIsAuthenticated = async (req, res, next) => {
     let token;
@@ -13,7 +14,7 @@ exports.checkUserIsAuthenticated = async (req, res, next) => {
             try {
                 const decodedToken = jwt.verify(token, process.env.JWT_KEY);
                 //buscar usuario en bd
-                /*
+                
                 const user = testUsers.find(u => u.id == decodedToken.userId);
                 if(!user){
                     res.status(401).json({
@@ -22,7 +23,7 @@ exports.checkUserIsAuthenticated = async (req, res, next) => {
                     });
                 }
                 req.userRoles = decodedToken.roles;
-                */
+                
                next();
             } catch (error) {
                 res.status(400).json({
