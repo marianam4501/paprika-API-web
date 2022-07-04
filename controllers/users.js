@@ -94,7 +94,6 @@ exports.recoverPassword = async (req, res) => {
         );
         var existing_code = testCodes.findIndex(u => u.userId == user.id);
         if(existing_code !== -1){
-            console.log('Borrando codigos existentes...');
             const deleted = testCodes.splice(existing_code,1);
         }
         const code = {
@@ -103,7 +102,6 @@ exports.recoverPassword = async (req, res) => {
         }
         testCodes.push(code);
         await sendRecoveryCodeEmail(user.email, randomToken); // no sirve
-        console.log('Correo enviado.');
         res.status(204).send();
     } catch (error) {
         res.status(500).send("Error del servidor: " + error);
