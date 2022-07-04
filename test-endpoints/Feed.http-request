@@ -1,6 +1,6 @@
 {
   "body": {
-    "content": "ewp9",
+    "content": "",
     "file": false,
     "fileSize": false
   },
@@ -9,5 +9,5 @@
   },
   "method": "GET",
   "title": "Feed",
-  "url": "http://localhost:5454/recipes"
+  "url": "http://localhost:5454/recipes/feed"
 }
