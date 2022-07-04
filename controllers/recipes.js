@@ -1,6 +1,13 @@
 const { testRecipes } = require("../data/recipes");
 
 exports.createRecipe = async (req, res) => {
+    // #swagger.tags = ['Recipes']
+    // #swagger.summary = 'Creates a new recipe'
+    /*  #swagger.parameters['obj'] = {
+            in: 'body',
+            description: 'Add an item',
+            schema: { $ref: '#/definitions/CreateRecipe' }
+    } */
     recipePayload = req.body;
     try {
         const last_id = testRecipes.at(testRecipes.length - 1).id;
@@ -26,6 +33,8 @@ exports.createRecipe = async (req, res) => {
 };
 
 exports.getFeed = async (req, res) => {
+    // #swagger.tags = ['Recipes']
+    // #swagger.summary = 'Gets all recipes'
     try {
         res.status(200);
         res.json(testRecipes);
@@ -39,6 +48,8 @@ exports.getFeed = async (req, res) => {
 };
 
 exports.getRecipeById = async (req, res) => {
+    // #swagger.tags = ['Recipes']
+    // #swagger.summary = 'Gets a recipe by its id'
     try {
         const recipe = testRecipes.find(r => r.id == req.params.id);
         if(!recipe){

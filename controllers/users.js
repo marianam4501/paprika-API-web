@@ -6,6 +6,13 @@ const {testUsers, testCodes, testRoles} = require("../data/users");
 const {testRecipes} = require("../data/recipes");
 
 exports.createUser = async (req, res) => {
+    // #swagger.tags = ['Users']
+    // #swagger.summary = 'Register a user'
+    /*  #swagger.parameters['obj'] = {
+            in: 'body',
+            description: 'Add a user',
+            schema: { $ref: '#/definitions/CreateUser' }
+    } */
     const userPayload = req.body;
     try {
         const last_id = testUsers.at(testUsers.length - 1).id;
@@ -35,6 +42,13 @@ exports.createUser = async (req, res) => {
 };
 
 exports.login =  async (req, res) => {
+    // #swagger.tags = ['Users']
+    // #swagger.summary = 'Login'
+    /*  #swagger.parameters['obj'] = {
+            in: 'body',
+            description: 'Login',
+            schema: { $ref: '#/definitions/LoginUser' }
+    } */
     const userPayload = req.body;
     try {
         const user = testUsers.find(u => u.email === userPayload.email);
@@ -61,6 +75,13 @@ exports.login =  async (req, res) => {
 };
 
 exports.recoverPassword = async (req, res) => {
+    // #swagger.tags = ['Users']
+    // #swagger.summary = 'Recover password'
+    /*  #swagger.parameters['obj'] = {
+            in: 'body',
+            description: 'Recover password',
+            schema: { $ref: '#/definitions/RecoverPassword' }
+    } */
     try {
         const userPayload = req.body;
         const user = testUsers.find(u => u.email == userPayload.email);
@@ -90,6 +111,13 @@ exports.recoverPassword = async (req, res) => {
 };
 
 exports.resetPassword = async (req, res) => {
+    // #swagger.tags = ['Users']
+    // #swagger.summary = 'Reset password'
+    /*  #swagger.parameters['obj'] = {
+            in: 'body',
+            description: 'Reset password',
+            schema: { $ref: '#/definitions/ResetPassword' }
+    } */
     try {
         const userPayload = req.body;
         const user = testUsers.find(u => u.email === userPayload.email);
@@ -113,7 +141,9 @@ exports.resetPassword = async (req, res) => {
       }
 };
 
-exports.listUsers = async( req, res) => {
+exports.listUsers = async( req, res) => {// #swagger.tags = ['Users']
+    // #swagger.tags = ['Users']
+    // #swagger.summary = 'Lists all the registered users (only for adminstrators)'
     try {
         res.status(200);
         res.json(testUsers);
@@ -127,6 +157,8 @@ exports.listUsers = async( req, res) => {
 };
 
 exports.userById = async(req, res) => {
+    // #swagger.tags = ['Users']
+    // #swagger.summary = 'Gets a user by its id'
     const user_id = req.params.id;
     try {
         var user = testUsers.find(u => u.id == user_id);
