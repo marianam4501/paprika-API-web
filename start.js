@@ -5,7 +5,7 @@ const doc = {
     title: "Paprika - API",
     description: "Este es el API del backend del proyecto PAPRIKA del curso CI0137",
   },
-  host: "localhost:4545",
+  host: "https://paprika-api.herokuapp.com/",
   schemes: ["http", "https"],
   definitions: {
     CreateUser: {
