@@ -13,6 +13,7 @@ const doc = {
       lastname: "Rodríguez",
       email: "jose@correo.com",
       password: "patito",
+      profile_picture: "https://ejemplo.com/foto.jpg"
     },
     LoginUser: {
       email: "jose@correo.com",
