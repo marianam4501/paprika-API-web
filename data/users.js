@@ -52,6 +52,10 @@ exports.testUsersRoles = [
         "roleId": 1,
     },
     {
+        "userId": 2, 
+        "roleId": 1,
+    },
+    {
         "userId": 2,
         "roleId": 2,
     },
@@ -61,6 +65,14 @@ exports.testUsersRoles = [
     },
     {
         "userId": 3,
+        "roleId": 2,
+    },
+    {
+        "userId": 4,
+        "roleId": 1,
+    },
+    {
+        "userId": 4,
         "roleId": 2,
     }
 ];
