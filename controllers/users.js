@@ -51,7 +51,7 @@ exports.login =  async (req, res) => {
     } */
     const userPayload = req.body;
     try {
-        const user = testUsers.find(u => u.email === userPayload.email);
+        const user = testUsers.find(u => u.email == userPayload.email);
         if (!user || !(await bcrypt.compare(userPayload.password, user.password))) {
             res.status(401).send("Credenciales inválidas.");
             return;
