@@ -20,6 +20,13 @@ exports.testUsers = [
         "email": "mariana.murilloquintana@ucr.ac.cr",
         "password": "$2b$10$bu8RfIcSCUYBcjDuyNePYevVcvpHTIK8tlyogugjWGU/tC8VLNtWe" //t3stp4ssw0rd
     },
+    {
+        "id":4,
+        "name": "César",
+        "lastname": "López",
+        "email": "cesar.lopezurena@ucr.ac.cr",
+        "password": "$2b$10$bu8RfIcSCUYBcjDuyNePYevVcvpHTIK8tlyogugjWGU/tC8VLNtWe" //t3stp4ssw0rd
+    }
 ];
 exports.testCodes = [
     {
