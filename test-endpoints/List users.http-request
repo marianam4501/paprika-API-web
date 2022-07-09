@@ -1,0 +1,14 @@
+{
+  "body": {
+    "content": "",
+    "file": false,
+    "fileSize": false
+  },
+  "headers": {
+    "content-type": "application/json",
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInJvbGVzIjpbMSwyXSwiaWF0IjoxNjU3MzkyMDU1LCJleHAiOjE2NTczOTI2NTV9.jjTkqGlTvwf8FYp4QT6asmRFTUmT6bGyP_Q-JHLicF4"
+  },
+  "method": "GET",
+  "title": "List users",
+  "url": "http://localhost:5454/users"
+}
