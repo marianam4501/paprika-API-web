@@ -17,6 +17,6 @@ router.route('/recover-password').post([validateSchema(recoverPasswordSchema)],r
 router.route('/reset-password').patch([validateSchema(resetPasswordSchema)],resetPassword);
 
 
-router.route('/:id').get(userById);
+router.route('/:id').get([checkUserIsAuthenticated], userById);
 
 module.exports = router;

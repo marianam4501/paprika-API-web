@@ -5,7 +5,8 @@
     "fileSize": false
   },
   "headers": {
-    "content-type": "application/json"
+    "content-type": "application/json",
+    "authorization": "Bearer"
   },
   "method": "GET",
   "title": "Profile",

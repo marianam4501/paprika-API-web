@@ -1,4 +1,5 @@
 const { testRecipes } = require("../data/recipes");
+const { testUsers } = require("../data/users");
 
 exports.createRecipe = async (req, res) => {
     // #swagger.tags = ['Recipes']
@@ -19,14 +20,23 @@ exports.createRecipe = async (req, res) => {
             "steps": recipePayload.steps,
             "image": recipePayload.image
         }
-        testRecipes.push(recipe);
-        res.status(200);
-        res.json(recipe);
-        return;
+        const user = testUsers.find(u => u.id == recipe.userId);
+        if(!user){
+            res.status(400).json({
+                message:
+                  "El id del usuario no corresponde a ningun usuario. Ingrese los datos correctamente.",
+            });
+            res.send();
+        } else {
+            testRecipes.push(recipe);
+            res.status(200);
+            res.json(recipe);
+            return;
+        }
     } catch (error) {
         res.status(500).json({
             message:
-              "Ocurrió un error al buscar una receta. Intente nuevamente. Si el error persiste, contacte al administrador del sistema.",
+              "Ocurrió un error al crear una receta. Intente nuevamente. Si el error persiste, contacte al administrador del sistema.",
             error,
         });
     }
