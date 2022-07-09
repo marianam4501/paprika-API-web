@@ -93,21 +93,15 @@ exports.testRecipes = [
         ingredients: [
         {
             id: 1,
-            name: "Spaghetti",
+            name: "Filet de pargo",
             measurement: "unidad(es)",
             quantity: 1,
         },
         {
             id: 2,
-            name: "Tomates",
-            measurement: "unidad(es)",
+            name: "Pesto",
+            measurement: "gramo(s)",
             quantity: 3,
-        },
-        {
-            id: 3,
-            name: "Carne molida",
-            measurement: "kilogramo(s)",
-            quantity: 1,
         },
         ],
         steps: "Duración: 45 minutos. Dificultad: Fácil.",
