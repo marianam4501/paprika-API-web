@@ -107,4 +107,25 @@ exports.testRecipes = [
         steps: "Duración: 45 minutos. Dificultad: Fácil.",
         image:"https://ci0137.s3.amazonaws.com/paprika/pargo.jpg",
     },
+    {
+        id: 4,
+        userId: 2,
+        name: "Salchipapas",
+        ingredients: [
+        {
+            id: 1,
+            name: "Papas",
+            measurement: "unidad(es)",
+            quantity: 4,
+        },
+        {
+            id: 2,
+            name: "Salchichas",
+            measurement: "unidad(es)",
+            quantity: 7,
+        },
+        ],
+        steps: "Core las papas en tiras. Puede quitarles la cáscara, o no. Cocínelas. Ponga aceite en un sartén y fría las papas. Corte las salchichas. Duración: 45 minutos. Dificultad: Fácil.",
+        image:"https://ci0137.s3.amazonaws.com/paprika/stock1.jpg",
+    },
 ];
