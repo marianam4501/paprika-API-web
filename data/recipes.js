@@ -86,4 +86,31 @@ exports.testRecipes = [
         "steps": "Duración: 45 minutos. Dificultad: Fácil.",
         "image": "https://ci0137.s3.amazonaws.com/paprika/spaguetti.jpg"
     },
+    {
+        id: 4,
+        userId: 4,
+        name: "Filet de pargo rojo al pesto",
+        ingredients: [
+        {
+            id: 1,
+            name: "Spaghetti",
+            measurement: "unidad(es)",
+            quantity: 1,
+        },
+        {
+            id: 2,
+            name: "Tomates",
+            measurement: "unidad(es)",
+            quantity: 3,
+        },
+        {
+            id: 3,
+            name: "Carne molida",
+            measurement: "kilogramo(s)",
+            quantity: 1,
+        },
+        ],
+        steps: "Duración: 45 minutos. Dificultad: Fácil.",
+        image:"https://ci0137.s3.amazonaws.com/paprika/pargo.jpg",
+    },
 ];
