@@ -1,6 +1,7 @@
 const Joi = require('joi');
 
 exports.createRecipeSchema = Joi.object({
+    id: Joi.number().integer().required().error(() => new Error("El id debe ser un número.")),
     userId: Joi.number().integer().required().error(() => new Error("El id del usuario debe ser un número.")),
     name: Joi.string().required(),
     ingredients: Joi.array().items(Joi.object({
