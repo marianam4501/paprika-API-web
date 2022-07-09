@@ -5,10 +5,9 @@
     "description": "Este es el API del backend del proyecto PAPRIKA del curso CI0137",
     "version": "1.0.0"
   },
-  "host": "localhost:4545",
+  "host": "paprika-api.herokuapp.com",
   "basePath": "/",
   "schemes": [
-    "http",
     "https"
   ],
   "paths": {
@@ -308,6 +307,10 @@
         "password": {
           "type": "string",
           "example": "patito"
+        },
+        "profile_picture": {
+          "type": "string",
+          "example": "https://ejemplo.com/foto.jpg"
         }
       }
     },
