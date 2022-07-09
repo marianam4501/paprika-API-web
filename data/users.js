@@ -4,21 +4,32 @@ exports.testUsers = [
         "name": "Test",
         "lastname": "User",
         "email": "test@ucr.ac.cr",
-        "password": "$2b$10$bu8RfIcSCUYBcjDuyNePYevVcvpHTIK8tlyogugjWGU/tC8VLNtWe" //t3stp4ssw0rd
+        "password": "$2b$10$bu8RfIcSCUYBcjDuyNePYevVcvpHTIK8tlyogugjWGU/tC8VLNtWe", //t3stp4ssw0rd
+        "profile_picture": ""
     },
     {
         "id":2,
         "name": "Nathan",
         "lastname": "Miranda",
         "email": "nathan.miranda@ucr.ac.cr",
-        "password": "$2b$10$bu8RfIcSCUYBcjDuyNePYevVcvpHTIK8tlyogugjWGU/tC8VLNtWe" //t3stp4ssw0rd
+        "password": "$2b$10$bu8RfIcSCUYBcjDuyNePYevVcvpHTIK8tlyogugjWGU/tC8VLNtWe", //t3stp4ssw0rd
+        "profile_picture": ""
     },
     {
         "id":3,
         "name": "Mariana",
         "lastname": "Murillo",
         "email": "mariana.murilloquintana@ucr.ac.cr",
-        "password": "$2b$10$bu8RfIcSCUYBcjDuyNePYevVcvpHTIK8tlyogugjWGU/tC8VLNtWe" //t3stp4ssw0rd
+        "password": "$2b$10$bu8RfIcSCUYBcjDuyNePYevVcvpHTIK8tlyogugjWGU/tC8VLNtWe", //t3stp4ssw0rd
+        "profile_picture": ""
+    },
+    {
+        "id":4,
+        "name": "César",
+        "lastname": "López",
+        "email": "cesar.lopezurena@ucr.ac.cr",
+        "password": "$2b$10$bu8RfIcSCUYBcjDuyNePYevVcvpHTIK8tlyogugjWGU/tC8VLNtWe", //t3stp4ssw0rd
+        "profile_picture": ""
     },
     {
         "id":4,

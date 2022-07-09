@@ -21,7 +21,8 @@ exports.createUser = async (req, res) => {
             "name": userPayload.name,
             "lastname": userPayload.lastname,
             "email": userPayload.email,
-            "password": await bcrypt.hash(userPayload.password, saltRounds)
+            "password": await bcrypt.hash(userPayload.password, saltRounds),
+            "profile_picture": userPayload.profile_picture
         };
         const existingUser = testUsers.find(u => u.email === user.email);
         if(!existingUser){

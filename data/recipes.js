@@ -30,7 +30,7 @@ exports.testRecipes = [
             }
         ],
         "steps": "Duración: 1 hora. Dificultad: Intermedia.",
-        "image": "https://ibb.co/X5dPNp5"
+        "image": "https://ci0137.s3.amazonaws.com/paprika/pie_de_limon.png"
     },
     {
         "id":2,
@@ -57,7 +57,7 @@ exports.testRecipes = [
             }
         ],
         "steps": "Duración: 1 hora. Dificultad: Fácil.",
-        "image": "https://ibb.co/JzS1rm8"
+        "image": "https://ci0137.s3.amazonaws.com/paprika/queque-de-banano.jpg"
     },
     {
         "id":3,
@@ -84,6 +84,6 @@ exports.testRecipes = [
             }
         ],
         "steps": "Duración: 45 minutos. Dificultad: Fácil.",
-        "image": "https://ibb.co/51zJBVg"
+        "image": "https://ci0137.s3.amazonaws.com/paprika/spaguetti.jpg"
     },
 ];
