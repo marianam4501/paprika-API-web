@@ -59,7 +59,7 @@ exports.login =  async (req, res) => {
         } else {
             const rolesIds = testRoles.map((r) => r.id);
             delete user.password;
-            const token = jwt.sign({ userId: user.id, roles: rolesIds }, process.env.JWT_KEY, {expiresIn: "10m"});
+            const token = jwt.sign({ userId: user.id, roles: rolesIds }, process.env.JWT_KEY, {expiresIn: "5m"});
             res.status(200);
             res.json({
                 ...user,
