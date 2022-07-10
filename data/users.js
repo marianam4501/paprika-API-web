@@ -21,7 +21,7 @@ exports.testUsers = [
         "lastname": "Murillo",
         "email": "mariana.murilloquintana@ucr.ac.cr",
         "password": "$2b$10$bu8RfIcSCUYBcjDuyNePYevVcvpHTIK8tlyogugjWGU/tC8VLNtWe", //t3stp4ssw0rd
-        "profile_picture": ""
+        "profile_picture": "https://ci0137.s3.amazonaws.com/paprika/defaultUser.png"
     },
     {
         "id":4,

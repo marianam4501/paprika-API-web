@@ -83,7 +83,7 @@ exports.testRecipes = [
                 "quantity": 1
             }
         ],
-        "steps": "Duración: 45 minutos. Dificultad: Fácil.",
+        "steps": "Ponga agua en una olla y póngala en el fuego. Deje hervir. Agregue los spaghettis. Cocínelos por 8 minutos o hasta que estén suaves. Licúe los tomates. Agregue especias. Cocine la carne molida. Duración: 45 minutos. Dificultad: Fácil.",
         "image": "https://ci0137.s3.amazonaws.com/paprika/spaguetti.jpg"
     },
     {
@@ -104,7 +104,7 @@ exports.testRecipes = [
             quantity: 3,
         },
         ],
-        steps: "Duración: 45 minutos. Dificultad: Fácil.",
+        steps: "Cocine el pescado. Duración: 45 minutos. Dificultad: Fácil.",
         image:"https://ci0137.s3.amazonaws.com/paprika/pargo.jpg",
     },
     {
@@ -146,7 +146,7 @@ exports.testRecipes = [
             quantity: 1,
         },
         ],
-        steps: "Cocine el arroz como de costumbre, agregando el pollo previamente cocinado y desmenuzado.",
-        image:"https://ci0137.s3.amazonaws.com/paprika/uploads/ee0bb3a8-e79a-47c9-b96f-72debc8fd775.jpg",
+        steps: "Cocine el arroz como de costumbre, agregando el pollo previamente cocinado y desmenuzado. Agregue condimentos al gusto.",
+        image:"https://ci0137.s3.amazonaws.com/paprika/arrozPollo.jpg",
     },
 ];
