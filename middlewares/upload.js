@@ -12,19 +12,19 @@ aws.config.update({
 const s3 = new aws.S3();
 
 exports.upload = multer({
-    storage: multerS3({
-      s3,
-      acl: "public-read",
-      bucket: "ci0137",
-      key: function (req, file, cb) {
-        cb(
-          null,
-          `paprika/uploads/${uuidv4()}${file.originalname.substring(
-            file.originalname.lastIndexOf(".")
-          )}`
-        );
-      },
-    }),
-  });
+  storage: multerS3({
+    s3,
+    acl: "public-read",
+    bucket: "ci0137",
+    key: function (req, file, cb) {
+      cb(
+        null,
+        `paprika/uploads/${uuidv4()}${file.originalname.substring(
+          file.originalname.lastIndexOf(".")
+        )}`
+      );
+    },
+  }),
+});
 
   

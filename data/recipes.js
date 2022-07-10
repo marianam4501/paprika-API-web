@@ -108,7 +108,7 @@ exports.testRecipes = [
         image:"https://ci0137.s3.amazonaws.com/paprika/pargo.jpg",
     },
     {
-        id: 4,
+        id: 5,
         userId: 2,
         name: "Salchipapas",
         ingredients: [
@@ -125,7 +125,28 @@ exports.testRecipes = [
             quantity: 7,
         },
         ],
-        steps: "Core las papas en tiras. Puede quitarles la cáscara, o no. Cocínelas. Ponga aceite en un sartén y fría las papas. Corte las salchichas. Duración: 45 minutos. Dificultad: Fácil.",
+        steps: "Corte las papas en tiras. Puede quitarles la cáscara, o no. Cocínelas. Ponga aceite en un sartén y fría las papas. Corte las salchichas. Duración: 45 minutos. Dificultad: Fácil.",
         image:"https://ci0137.s3.amazonaws.com/paprika/stock1.jpg",
+    },
+    {
+        id: 6,
+        userId: 4,
+        name: "Arroz con pollo",
+        ingredients: [
+        {
+            id: 1,
+            name: "Arroz",
+            measurement: "taza(s)",
+            quantity: 2,
+        },
+        {
+            id: 2,
+            name: "Pechuga de pollo",
+            measurement: "unidad(es)",
+            quantity: 1,
+        },
+        ],
+        steps: "Cocine el arroz como de costumbre, agregando el pollo previamente cocinado y desmenuzado.",
+        image:"https://ci0137.s3.amazonaws.com/paprika/uploads/ee0bb3a8-e79a-47c9-b96f-72debc8fd775.jpg",
     },
 ];
