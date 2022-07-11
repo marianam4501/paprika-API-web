@@ -4,7 +4,7 @@ exports.createUserSchema = Joi.object({
     name: Joi.string().required(),
     lastname: Joi.string().required(),
     email: Joi.string().email().required().error(() => new Error("El correo debe estar en formato de correo electrónico (ej. user@correo.com).")),
-    password: Joi.string().min(8).required().error(() => new Error("La contraseña debe contener al menos 8 caracteres (ej. Patito.20).")),
+    password: Joi.string().required().error(() => new Error("La contraseña debe contener al menos 8 caracteres (ej. Patito.20).")),
     profile_picture: Joi.string()
 });
 
